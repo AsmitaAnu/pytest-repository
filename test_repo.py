@@ -1,7 +1,7 @@
 import requests
 def git_create_repo():
 
-    personal_access_token = "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"
+    personal_access_token = "ghp_syUwfofWJW2KyQdrtZKU4KZddoVdYh3CH8L7"
     api_base_url = "https://api.github.com"
 
     data = {
@@ -23,7 +23,7 @@ def test_git_create_repo():
 
 def git_login():
 
-    personal_access_token = "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"
+    personal_access_token = "ghp_syUwfofWJW2KyQdrtZKU4KZddoVdYh3CH8L7"
     api_base_url = "https://api.github.com"
 
     response = requests.get(f"{api_base_url}/user/repos", headers={"Authorization": f"Bearer {personal_access_token}"})
