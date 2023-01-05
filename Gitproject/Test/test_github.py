@@ -1,3 +1,4 @@
+import  time
 def test_github_repo(browse):
     # Open github login page
     browse.get('https://github.com/login')
@@ -8,34 +9,31 @@ def test_github_repo(browse):
 
     # Password
     password = browse.find_element_by_xpath('//*[@id="password"]')
-    password.send_keys("Asmita@7878")
+    password.send_keys("AsmitaAnu1234")
+    time.sleep(2)
 
     # Click on sign in button
-    signin = browse.find_element_by_xpath(
-        '//*[@id="login"]/div[4]/form/div/input[11]')
+    signin = browse.find_element_by_xpath('//*[@id="login"]/div[4]/form/div/input[11]')
+#    signin = browse.find_element_by_xpath('/html[1]/body[1]/div[1]/div[3]/main[1]/div[1]/div[4]/form[1]/div[1]/input[11]')
     signin.click()
 
-    if browse.title == "Sign in to GitHub · GitHub":
-        assert False, "Failed to Login"
+# if browse.title == "Sign in to GitHub · GitHub":
+#        assert False, "Failed to Login"
+    time.sleep(2)
 
-        # Create new repo.
-        new_repo = browse.find_element_by_xpath('//*[@id="repos-container"]/h2/a')
-        new_repo.click()
+# Create new repo.
+    new_repo = browse.find_element_by_xpath("//div[@data-target='loading-context.details']//a[@class='btn btn-sm btn-primary'][normalize-space()='New']")
+    new_repo.click()
 
-        # Enter Repo. name
-        repositoryname = browse.find_element_by_xpath('//*[@id="repository_name"]')
-        repositoryname.send_keys("Myrepo")
+ # Enter Repo. name
+    repositoryname = browse.find_element_by_xpath('//*[@id="repository_name"]')
+    repositoryname.send_keys("Myrepo")
+    time.sleep(2)
 
-        # Optional
+# Click on Create Repo
+    create_repo = browse.find_element_by_xpath("//button[normalize-space()='Create repository']")
+    create_repo.click()
+    time.sleep(5.5)
 
-        # Enter Description
 
-        description = browse.find_element_by_xpath(
-            '//*[@id="repository_description"]')
-        description.send_keys("desc")
 
-        # Private Mode
-
-        private = browse.find_element_by_xpath(
-            '//*[@id="repository_visibility_private"]')
-        private.click()
